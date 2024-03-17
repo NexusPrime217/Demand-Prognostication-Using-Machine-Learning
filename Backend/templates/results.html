@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+<style>
+    .cursor {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        position: fixed;
+        background-color: #EDBFFF;
+        z-index: 7;
+        mix-blend-mode: difference;
+        transition: background-image ease-out 0.5s;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <div class="cursor"></div>
+    <div class="main">
+        <div class="result">
+            <h1>Here's your prediction</h1>
+            <h2> {{prediction}} Units</h2>
+        </div>
+    </div>
+    <script>
+        var crsr = document.querySelector(".cursor")
+        document.addEventListener("mousemove", function (dets) {
+            crsr.style.left = dets.x + "px"
+            crsr.style.top = dets.y + "px"
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+        integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
