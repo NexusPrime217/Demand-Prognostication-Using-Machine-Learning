@@ -110,11 +110,13 @@
     .form_name input {
       background-color: rgba(255, 255, 255, 0.358);
       backdrop-filter: blur(10px);
+      color: black;
     }
 
     .form_name select {
       background-color: rgba(255, 255, 255, 0.358);
       backdrop-filter: blur(10px);
+      color: white;
     }
   </style>
 
@@ -138,106 +140,77 @@
             <form class="form_name" action="/predict" method="post">
 
               <div class="form-group">
-                <label for="item_weight" class="ph-area">Enter Item Weight(KG)</label>
-                <input type="text" name="item_weight" id="item_weight" class="form-control" required>
+                <label for="year" class="ph-area">Year</label>
+                <input type="text" name="year" id="year" class="form-control" required>
+              </div>
 
+              <div class="form-group">
+                <label for="month" class="ph-area">Month</label>
+                <input type="text" name="month" id="month" class="form-control" required>
+              </div>
 
+              <div class="form-group">
+                <label for="week" class="ph-area">Week</label>
+                <input type="text" name="week" id="week" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="Store" class="ph-area">Store(1-45)</label>
+                <input type="text" name="Store" id="Store" class="form-control" required>
+              </div>
 
-                <div class="form-group">
-                  <label for="item_fat_content class=" class="ph-area">Enter Fat Content</label>
-                  <select class="form-control" name="item_fat_content" required="required">
-                    <option value="" selected>Item Fat Content</option>
-                    <option value="1">Low Fat</option>
-                    <option value="2">Regular</option>
-                    <option value="0">High Fat</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="item_visibility" class="ph-area">Enter Item Visibility (How visible the item is in the
-                    store(0 &lt;value &lt;1))</label>
-                  <input type="text" name="item_visibility" id="item_visibility" class="form-control" required>
-
-                </div>
-
-
-                <div class="form-group">
-                  <label for="item_type" class="ph-area">Enter Item type</label>
-                  <select class="form-control chosenn" name="item_type" required="required">
-                </div>
-                <option value="" selected>Item Type</option>
-                <option value="0">Baking Goods</option>
-                <option value="1">Breads</option>
-                <option value="2">Breakfast</option>
-                <option value="3">Canned</option>
-                <option value="4">Dairy</option>
-                <option value="5">Frozen Foods</option>
-                <option value="6">Fruits and Vegetables</option>
-                <option value="7">Hard Drinks</option>
-                <option value="8">Health and Hygiene</option>
-                <option value="9">Household</option>
-                <option value="10">Meat</option>
-                <option value="11">Others</option>
-                <option value="12">Seafood</option>
-                <option value="13">Snack Foods</option>
-                <option value="14">Soft Drinks</option>
-                <option value="15">Starchy Foods</option>
+              <div class="form-group">
+                <label for="IsHoliday" class="ph-area"> Festive Month</label>
+                <select class="form-control chosenn" name="IsHoliday" required="required">
+                  <option value="" selected>Festive Month</option>
+                  <option value="1">Diwali</option>
+                  <option value="1">Dussehra</option>
+                  <option value="1">Holi</option>
+                  <option value="1">Christmas</option>
+                  <option value="1">Other religional festivals</option>
+                  <option value="1">Extended Weekends</option>
+                  <option value="0">Working Day</option>
                 </select>
+              </div>
+
+              <div class="form-group">
+                <label for="Type" class="ph-area">Type</label>
+                <select class="form-control chosenn" name="Type" required="required">
+                  <option value="" selected>Type</option>
+                  <option value="0">Super Market</option>
+                  <option value="1">General Store</option>
+                  <option value="2">Small Shop</option>
                 </select>
               </div>
 
 
-
               <div class="form-group">
-                <label for="item_mrp" class="ph-area">Enter Item MRP</label>
-                <input type="text" name="item_mrp" id="item_mrp" class="form-control" required>
-
-              </div>
-
-              <div class="form-group">
-                <label for="outlet_establishment_year" class="ph-area">Outlet Establishment Year (YYYY)</label>
-                <input type="text" name="outlet_establishment_year" id="outlet_establishment_year" class="form-control"
-                  required>
-
-              </div>
-
-
-
-              <div class="form-group">
-                <label for="outlet_size" class="ph-area">Outlet Size</label>
-                <select class="form-control chosenn" name="outlet_size" required="required">
-                  <option value="" selected>outlet_size</option>
-                  <option value="0">High</option>
+                <label for="Size" class="ph-area">Outlet-Capacity</label>
+                <select class="form-control chosenn" name="Size" required="required">
+                  <option value="" selected>Capacity</option>
+                  <option value="0">Small</option>
                   <option value="1">Medium</option>
-                  <option value="2">Small</option>
+                  <option value="2">Large</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="item_type" class="ph-area">Enter Item</label>
+                <select class="form-control chosenn" name="item_type" required="required">
+                  <option value="" selected>Item</option>
+                  <option value="1">Sugar(1 kg)</option>
+                  <option value="2">Wheat(1 kg)</option>
+                  <option value="3">Rice(1 kg)</option>
+                  <option value="4">Soap</option>
+                  <option value="5">Ghee(1 Litre)</option>
+                  <option value="6">Cashew(250 gm)</option>
+                  <option value="0">Oil(1 ltr)</option>
+                </select>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="outlet_location_type" class="ph-area">Outlet location type</label>
-                <select class="form-control chosenn" name="outlet_location_type" required="required">
-                  <option value="" selected>outlet_location_type</option>
-                  <option value="0">Tier 1</option>
-                  <option value="1">Tier 2</option>
-                  <option value="2">Tier 3</option>
-                </select>
+                <input type="submit" class="btn btn-primary gradient-button" value="Submit">
+                <input type="reset" class="btn btn-danger button" value="Reset">
               </div>
-              <div class="page2">
-                <div class="form-group">
-                  <label for="outlet_type" class="ph-area">Outlet Type</label>
-                  <select class="form-control chosenn" name="outlet_type" required="required">
-                    <option value="" selected>outlet_type</option>
-                    <option value="0">Grocery Store</option>
-                    <option value="1">Supermarket Type1</option>
-                    <option value="2">Supermarket Type2</option>
-                    <option value="3">Supermarket Type3</option>
-                  </select>
-                </div>
-
-
-                <div class="form-group">
-                  <input type="submit" class="btn btn-primary gradient-button" value="Submit">
-                  <input type="reset" class="btn btn-danger button" value="Reset">
-                </div>
             </form>
           </div>
         </div>

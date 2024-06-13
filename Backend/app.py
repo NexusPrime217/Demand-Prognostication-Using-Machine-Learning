@@ -14,22 +14,30 @@ def index():
 
 
 def result():
-
-    item_weight= float(request.form['item_weight'])
-    item_fat_content=float(request.form['item_fat_content'])
-    item_visibility= float(request.form['item_visibility'])
-    item_type= float(request.form['item_type'])
-    item_mrp = float(request.form['item_mrp'])
-    outlet_establishment_year= float(request.form['outlet_establishment_year'])
-    outlet_size= float(request.form['outlet_size'])
-    outlet_location_type= float(request.form['outlet_location_type'])
-    outlet_type= float(request.form['outlet_type'])
-
-    X= np.array([[ item_weight,item_fat_content,item_visibility,item_type,item_mrp,
-                  outlet_establishment_year,outlet_size,outlet_location_type,outlet_type ]])
+    								
+    Store= float(request.form['Store'])
+    Dept=10
+    IsHoliday= float(request.form['IsHoliday'])
+    Temperature= 32.6
+    Fuel_Price = 103.38
+    Type= float(request.form['Type'])
+    Size= float(request.form['Size'])
+    year= float(request.form['year'])
+    month= float(request.form['month'])
+    week= float(request.form['week'])
+    item=int(request.form['item_type'])
+    size=75000
+    if Size==0:
+        size=10000
+    elif Size==1:
+        size=50000   
+    X= np.array([[ Store,Dept,IsHoliday,Temperature,Fuel_Price,Type,size,year,month ,week]])
+    item_type=['Oil(1 ltr)','Sugar(1 kg)','Wheat(1 kg)','Rice(1 kg)','Soap','Ghee(1 Litre)','Cashew(250 gm)']
+    
+    
 
     scaler_path= r'F:\Final _year\Backend\models\sc.sav'
-    #scaler_path= r'Backend/models/XGBoost.sav'
+    
 
 
     sc=joblib.load(scaler_path)
@@ -49,7 +57,7 @@ def result():
     prediction_without_brackets = str(Y_pred[0])  # Assuming Y_pred is an array and you want the first element
     prediction_without_brackets = prediction_without_brackets.strip('[]')  # Remove the brackets
     prediction_without_brackets=int(float(prediction_without_brackets))
-    return render_template("results.html", prediction = prediction_without_brackets)
+    return render_template("results.html", prediction = prediction_without_brackets,of_item=item_type[item])
 
 if __name__ == '__main__':
     app.debug = True
